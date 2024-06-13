@@ -71,3 +71,4 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 - Model 1 is estimated without restrictions & with a no-long-run-effect restriction. Models 2 and 3 seem to only be estimated with the no-long-ru-effect restriction. Need to figure out how to apply this restriction.
 - All LP standard errors are heteroskedasticity-consistent a la White (Eicker-Huber-White standard errors; `vcovHC` in `lpirfs` R package) -- following the recommendation of Plagborg-Moller and Montiel Olea (2021) in the context of lag-augmented LPs. The paper seems to incorrectly cite Plagborg-Moller and Wolf (2021).
 - VAR IRF standard errors are bootstrapped. The paper is unclear about the exact type of bootstrap procedure used.
+- `R` packages we can use for the replication: `lpirfs` (based on `plm`) and `panelvar`. 
