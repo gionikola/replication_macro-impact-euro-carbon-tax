@@ -61,3 +61,8 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 [] Appendix Fig: Effect of carbon tax on GDP growth in sample without Denmark, FInland, Norway, and Sweden (LP regression in Eq. (1); restricted)
 
 [] Appendix Fig: Effect of carbon tax on total employment growth in sample without Denmark, FInland, Norway, and Sweden (LP regression in Eq. (1); restricted)
+
+## Notes
+
+- LP standard errors are heteroskedasticity-consistent a la White (Eicker-Huber-White standard errors; `vcovHC` in `lpirfs` R package) -- following the recommendation of Plagborg-Moller and Montiel Olea (2021) in the context of lag-augmented LPs.
+- VAR IRF standard errors are bootstrapped (unclear what kind of bootstrap procedure).
