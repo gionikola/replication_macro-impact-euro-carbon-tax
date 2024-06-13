@@ -64,5 +64,10 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 
 ## Notes
 
-- LP standard errors are heteroskedasticity-consistent a la White (Eicker-Huber-White standard errors; `vcovHC` in `lpirfs` R package) -- following the recommendation of Plagborg-Moller and Montiel Olea (2021) in the context of lag-augmented LPs.
-- VAR IRF standard errors are bootstrapped (unclear what kind of bootstrap procedure).
+- There are really only three model specifications in the paper, applied across a variety of contexts:
+  1. Multivariate Lag-augmented panel LP with year- and country-fixed effects;
+  2. Bivariate lag-augmented panel LP (I think this is basically the multivariate lag-augmented panel LP, but without controls) with year- and country-fixed effects;
+  3. Bivariate panel VAR with year- and country-fixed effects.
+- Model 1 is estimated without restrictions & with a no-long-run-effect restriction. Models 2 and 3 seem to only be estimated with the no-long-ru-effect restriction. Need to figure out how to apply this restriction.
+- All LP standard errors are heteroskedasticity-consistent a la White (Eicker-Huber-White standard errors; `vcovHC` in `lpirfs` R package) -- following the recommendation of Plagborg-Moller and Montiel Olea (2021) in the context of lag-augmented LPs. The paper seems to incorrectly cite Plagborg-Moller and Wolf (2021).
+- VAR IRF standard errors are bootstrapped. The paper is unclear about the exact type of bootstrap procedure used.
