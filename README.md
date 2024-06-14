@@ -28,17 +28,17 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 
 [x] Fig 7B: Cumulated effect of carbon tax on total employment (LP regression in Eq. (1); restricted)
 
-[] Fig 8A: Effect of carbon tax on manufacturing employment growth (LP regression in Eq. (1); unrestricted)
+[x] Fig 8A: Effect of carbon tax on manufacturing employment growth (LP regression in Eq. (1); unrestricted)
 
-[] Fig 8B: Effect of carbon tax on manufacturing employment growth (LP regression in Eq. (1); restricted)
+[x] Fig 8B: Effect of carbon tax on manufacturing employment growth (LP regression in Eq. (1); restricted)
 
-[] Fig 9A: Cumulated effect of carbon tax on manufacturing employment (LP regression in Eq. (1); unrestricted)
+[x] Fig 9A: Cumulated effect of carbon tax on manufacturing employment (LP regression in Eq. (1); unrestricted)
 
-[] Fig 9B: Cumulated effect of carbon tax on manufacturing employment (LP regression in Eq. (1); restricted)
+[x] Fig 9B: Cumulated effect of carbon tax on manufacturing employment (LP regression in Eq. (1); restricted)
 
-[] Fig 10A: Cumulated effect of carbon tax on covered sector output (LP regression in Eq. (1); unrestricted)
+[x] Fig 10A: Cumulated effect of carbon tax on covered sector output (LP regression in Eq. (1); unrestricted)
 
-[] Fig 10B: Cumulated effect of carbon tax on covered sector output (LP regression in Eq. (1); restricted)
+[x] Fig 10B: Cumulated effect of carbon tax on covered sector output (LP regression in Eq. (1); restricted)
 
 ## Robustness Figures
 
