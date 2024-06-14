@@ -157,39 +157,7 @@ fig3a <- lp_lin_panel(data_set = df_select,
 plot(fig3a)
 
 ## Compute Sims point estimates
-col1 <- fig3a[1][[1]] |> 
-  as.vector()
-col2 <- fig3a[1][[1]] |> 
-  as.vector() |> 
-  lag(1)
-col2 <- c(0,col2[2:h])
-col3 <- fig3a[1][[1]] |> 
-  as.vector() |> 
-  lag(2)
-col3 <- c(0*c(1:2),col3[3:h])
-col4 <- fig3a[1][[1]] |> 
-  as.vector() |> 
-  lag(3)
-col4 <- c(0*c(1:3),col4[4:h])
-col5 <- fig3a[1][[1]] |> 
-  as.vector() |> 
-  lag(4)
-col5 <- c(0*c(1:4),col5[5:h])
-col6 <- fig3a[1][[1]] |> 
-  as.vector() |> 
-  lag(5)
-col6 <- c(0*c(1:5),col6[6:h])
-col7 <- fig3a[1][[1]] |> 
-  as.vector() |> 
-  lag(6)
-col7 <- c(0*c(1:6),col7[7:h])
-response_sims <- xpath[1] * col1 +
-  xpath[2] * col2 +
-  xpath[3] * col3 +
-  xpath[4] * col4 +
-  xpath[5] * col5 +
-  xpath[6] * col6 + 
-  xpath[7] * col7
+sims(fig3a, xpath, 7) |> plot(type = "b")
 
 # Fig 3B: Effect of carbon tax on GDP growth (LP regression in Eq. (2); restricted)
 fig3b <- lp_lin_panel(data_set = df_select,
@@ -208,6 +176,9 @@ fig3b <- lp_lin_panel(data_set = df_select,
   scale_irfs(gamma)
 
 plot(fig3b)
+
+## Compute Sims point estimates
+sims(fig3b, xpath, 7) |> plot(type = "b")
 
 #--------------------------------
 #--------------------------------
