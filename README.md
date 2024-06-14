@@ -14,7 +14,7 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 
 [x] Fig 3B: Effect of carbon tax on GDP growth (LP regression in Eq. (1); restricted)
 
-[] Fig 4A: Effect of carbon tax on GDP growth (bivariate panel LP; restricted)
+[x] Fig 4A: Effect of carbon tax on GDP growth (bivariate panel LP; restricted)
 
 [] Fig 4B: Effect of carbon tax on GDP growth (SVAR; restricted)
 
@@ -60,13 +60,13 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 
 [] Fig 14B: Cumulated effect of carbon tax on total employment in large carbon tax countries only (LP regression in Eq. (1); restricted)
 
-[] Fig A9: Effect of carbon tax on GDP growth in sample without Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
+[x] Fig A9: Effect of carbon tax on GDP growth in sample without Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
 
-[] Fig A10: Effect of carbon tax on total employment growth in sample without Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
+[x] Fig A10: Effect of carbon tax on total employment growth in sample without Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
 
-[] Fig A11: Effect of carbon tax on GDP growth in sample with ONLY Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
+[x] Fig A11: Effect of carbon tax on GDP growth in sample with ONLY Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
 
-[] Fig A12: Effect of carbon tax on total employment growth in sample with ONLY Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
+[x] Fig A12: Effect of carbon tax on total employment growth in sample with ONLY Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
 
 ## Notes
 
