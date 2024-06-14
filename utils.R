@@ -21,3 +21,8 @@ scale_irfs <- function(irf_obj, scale_factor){
   
   return(irf_obj)
 }
+
+# `%!in%`
+# Operator that returns TRUE when value
+# does not match array of inputs
+'%!in%' <- function(x,y)!('%in%'(x,y)) 
