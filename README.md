@@ -8,13 +8,15 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 
 ## Main Figures
 
+[x] Fig A4: Effect of carbon tax on itself (standard and cumulative)
+
 [x] Fig 3A: Effect of carbon tax on GDP growth (LP regression in Eq. (1); unrestricted)
 
 [x] Fig 3B: Effect of carbon tax on GDP growth (LP regression in Eq. (1); restricted)
 
 [] Fig 4A: Effect of carbon tax on GDP growth (bivariate panel LP; restricted)
 
-[x] Fig 4B: Effect of carbon tax on GDP growth (SVAR; restricted)
+[] Fig 4B: Effect of carbon tax on GDP growth (SVAR; restricted)
 
 [x] Fig 5A: Cumulated effect of carbon tax on GDP (LP regression in Eq. (1); unrestricted)
 
