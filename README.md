@@ -8,25 +8,25 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 
 ## Main Figures
 
-[] Fig 3A: Effect of carbon tax on GDP growth (LP regression in Eq. (1); unrestricted)
+[x] Fig 3A: Effect of carbon tax on GDP growth (LP regression in Eq. (1); unrestricted)
 
-[] Fig 3B: Effect of carbon tax on GDP growth (LP regression in Eq. (1); restricted)
+[x] Fig 3B: Effect of carbon tax on GDP growth (LP regression in Eq. (1); restricted)
 
 [] Fig 4A: Effect of carbon tax on GDP growth (bivariate panel LP; restricted)
 
-[] Fig 4B: Effect of carbon tax on GDP growth (SVAR; restricted)
+[x] Fig 4B: Effect of carbon tax on GDP growth (SVAR; restricted)
 
-[] Fig 5A: Cumulated effect of carbon tax on GDP (LP regression in Eq. (1); unrestricted)
+[x] Fig 5A: Cumulated effect of carbon tax on GDP (LP regression in Eq. (1); unrestricted)
 
-[] Fig 5B: Cumulated effect of carbon tax on GDP (LP regression in Eq. (1); restricted)
+[x] Fig 5B: Cumulated effect of carbon tax on GDP (LP regression in Eq. (1); restricted)
 
-[] Fig 6A: Effect of carbon tax on total employment growth (LP regression in Eq. (1); unrestricted)
+[x] Fig 6A: Effect of carbon tax on total employment growth (LP regression in Eq. (1); unrestricted)
 
-[] Fig 6B: Effect of carbon tax on total employment growth (LP regression in Eq. (1); restricted)
+[x] Fig 6B: Effect of carbon tax on total employment growth (LP regression in Eq. (1); restricted)
 
-[] Fig 7A: Cumulated effect of carbon tax on total employment (LP regression in Eq. (1); unrestricted)
+[x] Fig 7A: Cumulated effect of carbon tax on total employment (LP regression in Eq. (1); unrestricted)
 
-[] Fig 7B: Cumulated effect of carbon tax on total employment (LP regression in Eq. (1); restricted)
+[x] Fig 7B: Cumulated effect of carbon tax on total employment (LP regression in Eq. (1); restricted)
 
 [] Fig 8A: Effect of carbon tax on manufacturing employment growth (LP regression in Eq. (1); unrestricted)
 
