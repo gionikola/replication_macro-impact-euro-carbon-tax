@@ -144,6 +144,26 @@ plot(fig3b)
 
 #--------------------------------
 #--------------------------------
+# Fig 4A: Effect of carbon tax on GDP growth (bivariate LP regression in Eq. (1); restricted)
+fig4a <- lp_lin_panel(data_set = df_select,
+                      data_sample = "Full",
+                      endog_data = "dlrgdp",
+                      cumul_mult = FALSE,
+                      shock = "drater_LCU_USD18sw",
+                      diff_shock = FALSE,
+                      panel_model = "within",
+                      panel_effect = "time",
+                      robust_cov = "vcovHC",
+                      l_exog_data = c("drater_LCU_USD18sw","dlrgdp"),
+                      lags_exog_data = lagnum,
+                      confint = conf95,
+                      hor = h) |>
+  scale_irfs(gamma)
+
+plot(fig4a)
+
+#--------------------------------
+#--------------------------------
 # Fig 5A: Effect of carbon tax on GDP level (Cumulative IRF; LP regression in Eq. (1); unrestricted)
 fig5a <- lp_lin_panel(data_set = df_select,
                               data_sample = "Full",
@@ -407,3 +427,84 @@ fig10b_noncum <- lp_lin_panel(data_set = df_select,
   scale_irfs(gamma)
 
 plot(fig10b_noncum)
+
+
+#--------------------------------
+#--------------------------------
+# Fig A9: Effect of carbon tax on GDP growth (LP regression in Eq. (1); restricted)
+# excluding Scandinavian countries
+scandinavian <- c("Denmark", "Finland", "Norway", "Sweden")
+
+figa9 <- lp_lin_panel(data_set = df_select |> filter(country %!in% scandinavian),
+                      data_sample = "Full",
+                      endog_data = "dlrgdp",
+                      cumul_mult = FALSE,
+                      shock = "drater_LCU_USD18sw",
+                      diff_shock = FALSE,
+                      panel_model = "within",
+                      panel_effect = "time",
+                      robust_cov = "vcovHC",
+                      l_exog_data = c("drater_LCU_USD18sw","dlrgdp","dlemptot", "dlempman", "dlpgdp"),
+                      lags_exog_data = lagnum,
+                      confint = conf95,
+                      hor = h) |>
+  scale_irfs(gamma)
+
+plot(figa9)
+
+# Fig A10: Effect of carbon tax on total employment growth (LP regression in Eq. (1); restricted)
+# excluding Scandinavian countries
+figa10 <- lp_lin_panel(data_set = df_select |> filter(country %!in% scandinavian),
+                      data_sample = "Full",
+                      endog_data = "dlemptot",
+                      cumul_mult = FALSE,
+                      shock = "drater_LCU_USD18sw",
+                      diff_shock = FALSE,
+                      panel_model = "within",
+                      panel_effect = "time",
+                      robust_cov = "vcovHC",
+                      l_exog_data = c("drater_LCU_USD18sw","dlrgdp","dlemptot", "dlempman", "dlpgdp"),
+                      lags_exog_data = lagnum,
+                      confint = conf95,
+                      hor = h) |>
+  scale_irfs(gamma)
+
+plot(figa10)
+
+# Fig A11: Effect of carbon tax on GDP growth (LP regression in Eq. (1); restricted)
+# including Scandinavian countries
+figa11 <- lp_lin_panel(data_set = df_select |> filter(country %in% scandinavian),
+                      data_sample = "Full",
+                      endog_data = "dlrgdp",
+                      cumul_mult = FALSE,
+                      shock = "drater_LCU_USD18sw",
+                      diff_shock = FALSE,
+                      panel_model = "within",
+                      panel_effect = "time",
+                      robust_cov = "vcovHC",
+                      l_exog_data = c("drater_LCU_USD18sw","dlrgdp","dlemptot", "dlempman", "dlpgdp"),
+                      lags_exog_data = lagnum,
+                      confint = conf95,
+                      hor = h) |>
+  scale_irfs(gamma)
+
+plot(figa11)
+
+# Fig A12: Effect of carbon tax on total employment growth (LP regression in Eq. (1); restricted)
+# including Scandinavian countries
+figa12 <- lp_lin_panel(data_set = df_select |> filter(country %in% scandinavian),
+                       data_sample = "Full",
+                       endog_data = "dlemptot",
+                       cumul_mult = FALSE,
+                       shock = "drater_LCU_USD18sw",
+                       diff_shock = FALSE,
+                       panel_model = "within",
+                       panel_effect = "time",
+                       robust_cov = "vcovHC",
+                       l_exog_data = c("drater_LCU_USD18sw","dlrgdp","dlemptot", "dlempman", "dlpgdp"),
+                       lags_exog_data = lagnum,
+                       confint = conf95,
+                       hor = h) |>
+  scale_irfs(gamma)
+
+plot(figa12)
