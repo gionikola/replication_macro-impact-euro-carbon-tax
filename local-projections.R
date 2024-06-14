@@ -88,6 +88,38 @@ figa4_diff <- lp_lin_panel(data_set = df_select,
 
 plot(figa4_diff)
 
+## Based on FigA4 estimates
+## find sequence of carbon tax shocks 
+## that cause a permanent increase in tax rate
+col1 <- figa4_diff[1][[1]] |> 
+  as.vector()
+col2 <- figa4_diff[1][[1]] |> 
+  as.vector() |> 
+  lag(1)
+col2 <- c(0,col2[2:h])
+col3 <- figa4_diff[1][[1]] |> 
+  as.vector() |> 
+  lag(2)
+col3 <- c(0*c(1:2),col3[3:h])
+col4 <- figa4_diff[1][[1]] |> 
+  as.vector() |> 
+  lag(3)
+col4 <- c(0*c(1:3),col4[4:h])
+col5 <- figa4_diff[1][[1]] |> 
+  as.vector() |> 
+  lag(4)
+col5 <- c(0*c(1:4),col5[5:h])
+col6 <- figa4_diff[1][[1]] |> 
+  as.vector() |> 
+  lag(5)
+col6 <- c(0*c(1:5),col6[6:h])
+col7 <- figa4_diff[1][[1]] |> 
+  as.vector() |> 
+  lag(6)
+col7 <- c(0*c(1:6),col7[7:h])
+taxirf_mat <- matrix(c(col1,col2,col3,col4,col5,col6,col7), 7, 7)
+xpath <- solve(taxirf_mat, c(1,rep(0,6))) # Solve for shock path
+
 figa4_level <- lp_lin_panel(data_set = df_select,
                       data_sample = "Full",
                       endog_data = "rater_LCU_USD18sw",
@@ -123,6 +155,41 @@ fig3a <- lp_lin_panel(data_set = df_select,
   scale_irfs(gamma)
 
 plot(fig3a)
+
+## Compute Sims point estimates
+col1 <- fig3a[1][[1]] |> 
+  as.vector()
+col2 <- fig3a[1][[1]] |> 
+  as.vector() |> 
+  lag(1)
+col2 <- c(0,col2[2:h])
+col3 <- fig3a[1][[1]] |> 
+  as.vector() |> 
+  lag(2)
+col3 <- c(0*c(1:2),col3[3:h])
+col4 <- fig3a[1][[1]] |> 
+  as.vector() |> 
+  lag(3)
+col4 <- c(0*c(1:3),col4[4:h])
+col5 <- fig3a[1][[1]] |> 
+  as.vector() |> 
+  lag(4)
+col5 <- c(0*c(1:4),col5[5:h])
+col6 <- fig3a[1][[1]] |> 
+  as.vector() |> 
+  lag(5)
+col6 <- c(0*c(1:5),col6[6:h])
+col7 <- fig3a[1][[1]] |> 
+  as.vector() |> 
+  lag(6)
+col7 <- c(0*c(1:6),col7[7:h])
+response_sims <- xpath[1] * col1 +
+  xpath[2] * col2 +
+  xpath[3] * col3 +
+  xpath[4] * col4 +
+  xpath[5] * col5 +
+  xpath[6] * col6 + 
+  xpath[7] * col7
 
 # Fig 3B: Effect of carbon tax on GDP growth (LP regression in Eq. (2); restricted)
 fig3b <- lp_lin_panel(data_set = df_select,
