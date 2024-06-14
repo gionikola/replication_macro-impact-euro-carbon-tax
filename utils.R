@@ -26,3 +26,26 @@ scale_irfs <- function(irf_obj, scale_factor){
 # Operator that returns TRUE when value
 # does not match array of inputs
 '%!in%' <- function(x,y)!('%in%'(x,y)) 
+
+# `sims`
+# Sims counterfactual
+# given `lprifs_lin_panel_obj`
+# sequence of counterfactual shocks
+# and horizon length (+1)
+sims <- function(fig, xpath, horizon){
+  
+  response_sims <- 0 * c(1:horizon)
+  
+  for(i in 1:horizon){
+    if (i == 1){
+      response_temp <- fig$irf_panel_mean |> as.vector() 
+      response_sims <- xpath[i] * response_temp
+    }else{
+      response_temp <- fig$irf_panel_mean |> as.vector() |> lag(i-1)
+      response_temp <- c(0*c(1:(i-1)),response_temp[i:h])
+      response_sims <- xpath[i] * response_temp + response_sims
+    }
+  }
+  
+  return(response_sims)
+}
