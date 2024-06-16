@@ -44,21 +44,21 @@ Replication done by Thomas Ash and Giorgi Nikolaishvili.
 
 ## Robustness Figures
 
-[] Fig 11A: Effect of carbon tax on GDP growth in revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
+[x] Fig 11A: Effect of carbon tax on GDP growth in revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
 
-[] Fig 11B: Effect of carbon tax on total employment growth in revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
+[x] Fig 11B: Effect of carbon tax on total employment growth in revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
 
-[] Fig 12A: Effect of carbon tax on GDP growth in non-revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
+[x] Fig 12A: Effect of carbon tax on GDP growth in non-revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
 
-[] Fig 12B: Effect of carbon tax on total employment growth in non-revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
+[x] Fig 12B: Effect of carbon tax on total employment growth in non-revenue recycling carbon tax countries only (LP regression in Eq. (1); restricted)
 
-[] Fig 13A: Cumulated effect of carbon tax on covered sector output in revenue recycling carbon tax countries only(LP regression in Eq. (1); restricted)
+[x] Fig 13A: Cumulated effect of carbon tax on covered sector output in revenue recycling carbon tax countries only(LP regression in Eq. (1); restricted)
 
-[] Fig 13B: Cumulated effect of carbon tax on covered sector output in non-revenue recycling carbon tax countries only(LP regression in Eq. (1); restricted)
+[x] Fig 13B: Cumulated effect of carbon tax on covered sector output in non-revenue recycling carbon tax countries only(LP regression in Eq. (1); restricted)
 
-[] Fig 14A: Effect of carbon tax on GDP growth in large carbon tax countries only (LP regression in Eq. (1); restricted)
+[x] Fig 14A: Effect of carbon tax on GDP growth in large carbon tax countries only (LP regression in Eq. (1); restricted)
 
-[] Fig 14B: Cumulated effect of carbon tax on total employment in large carbon tax countries only (LP regression in Eq. (1); restricted)
+[x] Fig 14B: Cumulated effect of carbon tax on total employment in large carbon tax countries only (LP regression in Eq. (1); restricted)
 
 [x] Fig A9: Effect of carbon tax on GDP growth in sample without Denmark, Finland, Norway, and Sweden (LP regression in Eq. (1); restricted)
 
