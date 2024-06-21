@@ -8,7 +8,8 @@ pacman::p_load(tidyr,
                readr,
                rio,
                lpirfs,
-               panelvar) 
+               panelvar,
+               svglite) 
 
 # `scale_irfs()`
 # Scales input `lpirfs_lin_panel_obj` IRF
