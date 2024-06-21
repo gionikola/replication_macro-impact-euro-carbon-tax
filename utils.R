@@ -92,3 +92,33 @@ create_irf_plot <- function(irf_df,ylimit,cumulative=TRUE){
   
   return(new_response_plot)
 }
+
+# Function for potting counterfactual IRFs for convenience
+plot_counter_irf <- function(fig, h, ylimit){
+  
+  fig_df <- data.frame(
+    horizon = c(0:(h-1)),
+    mean = fig$irf_panel_mean |> as.vector(),
+    ci_lower = fig$irf_panel_low |> as.vector(),
+    ci_upper = fig$irf_panel_up |> as.vector(),
+    mean_cumul = fig$irf_panel_mean |> as.vector() |> cumsum(),
+    mean_counterfactual = sims(fig, xpath, h),
+    mean_counterfactual_cumul = sims(fig, xpath, h) |> cumsum()
+  )
+  
+  irf_plot <- ggplot(fig_df) +
+    geom_line(aes(x = horizon, y = mean), color = "black", linetype = "dashed", size = 1.5) +
+    geom_ribbon(aes(x = horizon, ymin = ci_lower, ymax = ci_upper), fill = "magenta", alpha = 0.2) +
+    geom_line(aes(x = horizon, y = mean_cumul), size = 1.5, color = "black", linetype = "solid") +
+    geom_line(aes(x = horizon, y = mean_counterfactual), size = 1.5, color = "green", linetype = "dashed") +
+    geom_line(aes(x = horizon, y = mean_counterfactual_cumul), size = 1.5, color = "green", linetype = "solid") +
+    theme_classic() +
+    coord_cartesian(expand = FALSE) + 
+    theme(text=element_text(size=15)) + 
+    ylab("Percentage points") +
+    xlab("Years after implementation") +
+    geom_hline(yintercept=0) +
+    ylim(ylimit[1],ylimit[2]) 
+  
+  return(irf_plot)
+}
