@@ -210,12 +210,13 @@ fig3a <- lp_lin_panel(data_set = df_select,
                               hor = h) |>
   scale_irfs(gamma)
 
-plot(fig3a)
+counterfactual_irf_plot <- plot_counter_irf(fig3a, h, c(-4,4))
 
-## Quickplot Sims point estimates
-plot(c(0:6), fig3a[1][[1]], type = "b", ylim = c(-4,4))
-lines(c(0:6), sims(fig3a, xpath, 7), type = "b")
-abline(a=0, b=0)
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_unrestricted_gdp.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 # Fig 3B: Effect of carbon tax on GDP growth (LP regression in Eq. (2); restricted)
 fig3b <- lp_lin_panel(data_set = df_select,
@@ -233,12 +234,13 @@ fig3b <- lp_lin_panel(data_set = df_select,
                               hor = h) |>
   scale_irfs(gamma)
 
-plot(fig3b)
+counterfactual_irf_plot <- plot_counter_irf(fig3b, h, c(-4,4))
 
-## Quickplot Sims point estimates
-plot(c(0:6), fig3b[1][[1]], type = "b", ylim = c(-4,4))
-lines(c(0:6), sims(fig3b, xpath, 7), type = "b")
-abline(a=0, b=0)
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_restricted_gdp.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -355,7 +357,13 @@ fig6a <- lp_lin_panel(data_set = df_select,
                               hor = h) |>
   scale_irfs(gamma)
 
-plot(fig6a)
+counterfactual_irf_plot <- plot_counter_irf(fig6a, h, c(-4,4))
+
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_unrestricted_total-employment.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 # Fig 6B: Effect of carbon tax on total employment growth  (LP regression in Eq. (2); restricted)
 fig6b <- lp_lin_panel(data_set = df_select,
@@ -373,7 +381,13 @@ fig6b <- lp_lin_panel(data_set = df_select,
                               hor = h) |>
   scale_irfs(gamma)
 
-plot(fig6b)
+counterfactual_irf_plot <- plot_counter_irf(fig6b, h, c(-4,4))
+
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_restricted_total-employment.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -403,6 +417,8 @@ ggsave(filename = "figs/fig_restricted_carbon-tax-on-total-employment.svg",
        new_response_plot,
        width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
+#--------------------------------
+#--------------------------------
 #--------------------------------
 #--------------------------------
 # Fig 7A: Effect of carbon tax on total employment level (Cumulative IRF; LP regression in Eq. (1); unrestricted)
@@ -443,6 +459,8 @@ plot(fig7b)
 
 #--------------------------------
 #--------------------------------
+#--------------------------------
+#--------------------------------
 # Fig 8A: Effect of carbon tax on manufacturing employment growth (LP regression in Eq. (1); unrestricted)
 fig8a <- lp_lin_panel(data_set = df_select,
                       data_sample = "Full",
@@ -459,7 +477,13 @@ fig8a <- lp_lin_panel(data_set = df_select,
                       hor = h) |>
   scale_irfs(gamma)
 
-plot(fig8a)
+counterfactual_irf_plot <- plot_counter_irf(fig8a, h, c(-4,4))
+
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_unrestricted_manufacturing-employment.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 # Fig 8B: Effect of carbon tax on manufacturing employment growth  (LP regression in Eq. (2); restricted)
 fig8b <- lp_lin_panel(data_set = df_select,
@@ -477,7 +501,13 @@ fig8b <- lp_lin_panel(data_set = df_select,
                       hor = h) |>
   scale_irfs(gamma)
 
-plot(fig8b)
+counterfactual_irf_plot <- plot_counter_irf(fig8b, h, c(-4,4))
+
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_restricted_manufacturing-employment.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -507,6 +537,8 @@ ggsave(filename = "figs/fig_restricted_carbon-tax-on-manufacturing-employment.sv
        new_response_plot,
        width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
+#--------------------------------
+#--------------------------------
 #--------------------------------
 #--------------------------------
 # Fig 9A: Effect of carbon tax on manufacturing employment level (Cumulative IRF; LP regression in Eq. (1); unrestricted)
@@ -547,6 +579,8 @@ plot(fig9b)
 
 #--------------------------------
 #--------------------------------
+#--------------------------------
+#--------------------------------
 # Fig 10A: Effect of carbon tax on covered sector emission level (Cumulative IRF; LP regression in Eq. (1); unrestricted)
 fig10a <- lp_lin_panel(data_set = df_select,
                       data_sample = "Full",
@@ -562,10 +596,6 @@ fig10a <- lp_lin_panel(data_set = df_select,
                       confint = conf95,
                       hor = h) |>
   scale_irfs(gamma)
-
-plot(fig10a)
-plot(c(0:6), fig10a[1][[1]], type = "b")
-lines(c(0:6), sims(fig10a, xpath, 7), type = "b")
 
 # Fig 10B: Effect of carbon tax on covered sector emission level (Cumulative IRF; LP regression in Eq. (2); restricted)
 fig10b <- lp_lin_panel(data_set = df_select,
@@ -587,6 +617,8 @@ plot(fig10b)
 
 #--------------------------------
 #--------------------------------
+#--------------------------------
+#--------------------------------
 # Fig 10A (non-cumulative)
 fig10a_noncum <- lp_lin_panel(data_set = df_select,
                        data_sample = "Full",
@@ -603,9 +635,13 @@ fig10a_noncum <- lp_lin_panel(data_set = df_select,
                        hor = h) |>
   scale_irfs(gamma)
 
-plot(fig10a_noncum)
-plot(c(0:6), fig10a_noncum[1][[1]], type = "b")
-lines(c(0:6), sims(fig10a_noncum, xpath, 7), type = "b")
+counterfactual_irf_plot <- plot_counter_irf(fig10a_noncum, h, c(-15,15))
+
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_unrestricted_covered-sector-emissions.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 # Fig 10B: (non-cumulative)
 fig10b_noncum <- lp_lin_panel(data_set = df_select,
@@ -623,8 +659,13 @@ fig10b_noncum <- lp_lin_panel(data_set = df_select,
                        hor = h) |>
   scale_irfs(gamma)
 
-plot(fig10b_noncum)
+counterfactual_irf_plot <- plot_counter_irf(fig10b_noncum, h, c(-15,15))
 
+counterfactual_irf_plot
+
+ggsave(filename = "figs/fig_counterfactual_restricted_covered-sector-emissions.svg", 
+       counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -654,6 +695,8 @@ ggsave(filename = "figs/fig_restricted_carbon-tax-on-covered-sector-emissions.sv
        new_response_plot,
        width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
+#--------------------------------
+#--------------------------------
 #--------------------------------
 #--------------------------------
 # Fig 11A: Effect on GDP growth; restricted; revenue recycling carbon tax countries only
@@ -692,6 +735,8 @@ fig11b <- lp_lin_panel(data_set = df_select |> filter(IntRevRec > 0),
 
 plot(fig11b)
 
+#--------------------------------
+#--------------------------------
 #--------------------------------
 #--------------------------------
 # Fig 12A: Effect on GDP growth; restricted; revenue recycling carbon tax countries only
@@ -736,6 +781,8 @@ plot(fig12b)
 
 #--------------------------------
 #--------------------------------
+#--------------------------------
+#--------------------------------
 # Fig 13A: Effect of carbon tax on covered sector emission level in revenue recycling carbon tax countries
 # (Cumulative IRF; LP regression in Eq. (2); restricted)
 fig13a <- lp_lin_panel(data_set = df_select |> filter(IntRevRec > 0),
@@ -778,6 +825,8 @@ plot(fig13b)
 
 #--------------------------------
 #--------------------------------
+#--------------------------------
+#--------------------------------
 # Fig 13A Non-cumulative
 fig13a_noncum <- lp_lin_panel(data_set = df_select |> filter(IntRevRec > 0),
                        data_sample = "Full",
@@ -816,7 +865,8 @@ fig13b_noncum <- lp_lin_panel(data_set = df_select |>
 
 plot(fig13b_noncum)
 
-
+#--------------------------------
+#--------------------------------
 #--------------------------------
 #--------------------------------
 # Fig 14A: Effect of carbon tax on GDP growth
@@ -871,6 +921,8 @@ fig14b <- lp_lin_panel(data_set = df_select |>
 
 plot(fig14b)
 
+#--------------------------------
+#--------------------------------
 #--------------------------------
 #--------------------------------
 # Fig A9: Effect of carbon tax on GDP growth (LP regression in Eq. (1); restricted)
