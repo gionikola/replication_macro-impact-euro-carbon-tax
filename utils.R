@@ -50,3 +50,19 @@ sims <- function(fig, xpath, horizon){
   
   return(response_sims)
 }
+
+# Create standard and cumulative IRF dataframe for easy plotting
+create_irf_df <- function(fig, horizon){
+  
+  temp_df <- data.frame(horizon = c(0:horizon),
+                        irf = fig$irf_panel_mean |> as.vector(),
+                        cirf = fig$irf_panel_mean |> as.vector() |> cumsum()) |> 
+    pivot_longer(
+      cols = c("irf","cirf"), 
+      names_to = "response_type",
+      values_to = "response"
+    ) |>
+    mutate(response_type = ifelse(response_type=="irf", "Standard IRF", "Cumulative IRF"))
+  
+  return(temp_df)
+}
