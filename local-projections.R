@@ -169,10 +169,10 @@ abline(a=0, b=0)
 
 temp_df <- create_irf_df(figa4_diff$irf_panel_mean, 8)
 
-response_plot <- ggplot(temp_df, aes(x=horizon, y=response, color=response_type)) +
+response_plot <- ggplot(temp_df, aes(x=horizon, y=response, linetype=response_type)) +
   geom_line(size=2) +
   theme_classic() +
-  theme(legend.position = "bottom") +
+  theme(legend.position = "none") +
   coord_cartesian(expand = FALSE) + 
   theme(text=element_text(size=15)) 
 

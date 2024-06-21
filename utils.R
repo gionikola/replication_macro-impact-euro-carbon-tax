@@ -75,10 +75,11 @@ create_irf_plot <- function(irf_df,ylimit,cumulative=TRUE){
       filter(response_type = "Standard IRF")
   }
   
-  response_plot <- ggplot(irf_df, aes(x=horizon, y=response, color=response_type)) +
+  response_plot <- ggplot(irf_df, aes(x=horizon, y=response, linetype=response_type)) +
     geom_line(size=2) +
     theme_classic() +
-    theme(legend.position = "bottom") +
+    #theme(legend.position = "bottom") +
+    theme(legend.position = "none") +
     coord_cartesian(expand = FALSE) + 
     theme(text=element_text(size=15)) 
   
