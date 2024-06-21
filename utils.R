@@ -80,14 +80,14 @@ create_irf_plot <- function(irf_df,ylimit,cumulative=TRUE){
     theme_classic() +
     theme(legend.position = "bottom") +
     coord_cartesian(expand = FALSE) + 
-    theme(text=element_text(size=15))
+    theme(text=element_text(size=15)) 
   
   new_response_plot <- response_plot + 
     ylab("Percentage points") +
     xlab("Years after implementation") +
     geom_line(aes(y = 0), col = "black") + 
     scale_color_discrete(name = "Response Type:") +
-    ylim(ylimit[1],ylimit[2])
+    ylim(ylimit[1],ylimit[2]) 
   
   return(new_response_plot)
 }

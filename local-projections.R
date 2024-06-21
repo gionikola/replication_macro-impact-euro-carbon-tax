@@ -174,20 +174,21 @@ response_plot <- ggplot(temp_df, aes(x=horizon, y=response, color=response_type)
   theme_classic() +
   theme(legend.position = "bottom") +
   coord_cartesian(expand = FALSE) + 
-  theme(text=element_text(size=15))
+  theme(text=element_text(size=15)) 
 
 new_response_plot <- response_plot + 
-  ylab("$/ton") +
+  ylab("USD/ton") +
   xlab("Horizon (Years)") +
   geom_line(aes(y = 1), col = "black") +
   geom_line(aes(y = 0), col = "black") + 
-  scale_color_discrete(name = "Response Type:")
+  scale_color_discrete(name = "Response Type:") +
+  ylim(-0.2,1.6)
 
 new_response_plot
 
 ggsave(filename = "figs/fig_a4.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -254,7 +255,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_unrestricted_carbon-tax-on-gdp.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 ## Restricted model
 temp_df <- create_irf_df(sims(fig3b, xpath, h), h-1)
@@ -265,7 +266,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_restricted_carbon-tax-on-gdp.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -389,7 +390,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_unrestricted_carbon-tax-on-total-employment.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 ## Restricted model
 temp_df <- create_irf_df(sims(fig6b, xpath, h), h-1)
@@ -400,7 +401,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_restricted_carbon-tax-on-total-employment.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -493,7 +494,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_unrestricted_carbon-tax-on-manufacturing-employment.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 ## Restricted model
 temp_df <- create_irf_df(sims(fig8b, xpath, h), h-1)
@@ -504,7 +505,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_restricted_carbon-tax-on-manufacturing-employment.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -640,7 +641,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_unrestricted_carbon-tax-on-covered-sector-emissions.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 ## Restricted model
 temp_df <- create_irf_df(sims(fig10b_noncum, xpath, h), h-1)
@@ -651,7 +652,7 @@ new_response_plot
 
 ggsave(filename = "figs/fig_restricted_carbon-tax-on-covered-sector-emissions.svg", 
        new_response_plot,
-       width = 6, height = 4, dpi = 300, units = "in", device='svg')
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
