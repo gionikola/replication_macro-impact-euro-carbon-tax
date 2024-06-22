@@ -317,7 +317,31 @@ fig5a <- lp_lin_panel(data_set = df_select,
                               hor = h) |>
   scale_irfs(gamma)
 
-plot(fig5a)
+fig5a_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig5a$irf_panel_mean |> as.vector(),
+  response_level_low = fig5a$irf_panel_low |> as.vector(),
+  response_level_up = fig5a$irf_panel_up |> as.vector(), 
+  response_cumulative = fig3a$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig5a_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-5,5) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_unrestricted_cumulative-vs-level_gdp.svg", 
+       irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 # Fig 5B: Effect of carbon tax on GDP level (Cumulative IRF; LP regression in Eq. (2); restricted)
 fig5b <- lp_lin_panel(data_set = df_select,
@@ -335,7 +359,31 @@ fig5b <- lp_lin_panel(data_set = df_select,
                               hor = h) |>
   scale_irfs(gamma)
 
-plot(fig5b)
+fig5b_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig5b$irf_panel_mean |> as.vector(),
+  response_level_low = fig5b$irf_panel_low |> as.vector(),
+  response_level_up = fig5b$irf_panel_up |> as.vector(), 
+  response_cumulative = fig3b$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig5b_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-5,5) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_restricted_cumulative-vs-level_gdp.svg", 
+       irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -437,7 +485,31 @@ fig7a <- lp_lin_panel(data_set = df_select,
                       hor = h) |>
   scale_irfs(gamma)
 
-plot(fig7a)
+fig7a_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig7a$irf_panel_mean |> as.vector(),
+  response_level_low = fig7a$irf_panel_low |> as.vector(),
+  response_level_up = fig7a$irf_panel_up |> as.vector(), 
+  response_cumulative = fig6a$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig7a_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-4,4) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_unrestricted_cumulative-vs-level_total-employment.svg", 
+       irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 # Fig 7B: Effect of carbon tax on total employment level (Cumulative IRF; LP regression in Eq. (2); restricted)
 fig7b <- lp_lin_panel(data_set = df_select,
@@ -455,7 +527,31 @@ fig7b <- lp_lin_panel(data_set = df_select,
                       hor = h) |>
   scale_irfs(gamma)
 
-plot(fig7b)
+fig7b_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig7b$irf_panel_mean |> as.vector(),
+  response_level_low = fig7b$irf_panel_low |> as.vector(),
+  response_level_up = fig7b$irf_panel_up |> as.vector(), 
+  response_cumulative = fig6b$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig7b_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-4,4) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_restricted_cumulative-vs-level_total-employment.svg", 
+       irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -557,7 +653,31 @@ fig9a <- lp_lin_panel(data_set = df_select,
                       hor = h) |>
   scale_irfs(gamma)
 
-plot(fig9a)
+fig9a_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig9a$irf_panel_mean |> as.vector(),
+  response_level_low = fig9a$irf_panel_low |> as.vector(),
+  response_level_up = fig9a$irf_panel_up |> as.vector(), 
+  response_cumulative = fig8a$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig9a_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-4,4) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_unrestricted_cumulative-vs-level_manufacturing-employment.svg", 
+       irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 # Fig 9B: Effect of carbon tax on manufacturing employment level (Cumulative IRF; LP regression in Eq. (2); restricted)
 fig9b <- lp_lin_panel(data_set = df_select,
@@ -575,7 +695,31 @@ fig9b <- lp_lin_panel(data_set = df_select,
                       hor = h) |>
   scale_irfs(gamma)
 
-plot(fig9b)
+fig9b_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig9b$irf_panel_mean |> as.vector(),
+  response_level_low = fig9b$irf_panel_low |> as.vector(),
+  response_level_up = fig9b$irf_panel_up |> as.vector(), 
+  response_cumulative = fig8b$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig9b_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-4,4) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_restricted_cumulative-vs-level_manufacturing-employment.svg", 
+       irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
 #--------------------------------
@@ -665,6 +809,62 @@ counterfactual_irf_plot
 
 ggsave(filename = "figs/fig_counterfactual_restricted_covered-sector-emissions.svg", 
        counterfactual_irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
+
+#--------------------------------
+#--------------------------------
+# Cumulative vs level covered sector emission response
+
+fig10a_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig10a$irf_panel_mean |> as.vector(),
+  response_level_low = fig10a$irf_panel_low |> as.vector(),
+  response_level_up = fig10a$irf_panel_up |> as.vector(), 
+  response_cumulative = fig10a_noncum$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig10a_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-15,15) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_unrestricted_cumulative-vs-level_covered-sector-emissions.svg", 
+       irf_plot,
+       width = 7, height = 4, dpi = 300, units = "in", device='svg')
+
+fig10b_df <- data.frame(
+  horizon = c(0:(h-1)),
+  response_level_mean = fig10b$irf_panel_mean |> as.vector(),
+  response_level_low = fig10b$irf_panel_low |> as.vector(),
+  response_level_up = fig10b$irf_panel_up |> as.vector(), 
+  response_cumulative = fig10b_noncum$irf_panel_mean |> as.vector() |> cumsum()
+)
+
+irf_plot <- ggplot(fig10b_df) +
+  geom_line(aes(x = horizon, y = response_level_mean), color = "black", linetype = "dashed", size = 1.5) +
+  geom_ribbon(aes(x = horizon, ymin = response_level_low, ymax = response_level_up), fill = "magenta", alpha = 0.2) +
+  geom_line(aes(x = horizon, y = response_cumulative), size = 1.5, color = "black", linetype = "solid") +
+  theme_classic() +
+  coord_cartesian(expand = FALSE) + 
+  theme(text=element_text(size=15)) + 
+  ylab("Percentage points") +
+  xlab("Horizon (Years)") +
+  geom_hline(yintercept=0) +
+  ylim(-15,15) 
+
+irf_plot
+
+ggsave(filename = "figs/fig_restricted_cumulative-vs-level_covered-sector-emissions.svg", 
+       irf_plot,
        width = 7, height = 4, dpi = 300, units = "in", device='svg')
 
 #--------------------------------
